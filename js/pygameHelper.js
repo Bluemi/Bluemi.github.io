@@ -7,12 +7,14 @@ function rgbToHex(color) {
     return "#" + componentToHex(color.r) + componentToHex(color.g) + componentToHex(color.b);
 }
 
-function createPygameHelper() {
-    return {
+async function createPygameHelper(pyodide, micropip) {
+    // install pyodide-pygame dropin
+    await micropip.install("wheels/pygame-0.1.0-py3-none-any.whl")
+    let canvas = document.getElementById("mainCanvas");
+    const pygameHelper = {
         display: {
             set_mode: function (screen_size) {
                 // get canvas
-                let canvas = document.getElementById("mainCanvas");
                 canvas.width = screen_size[0];
                 canvas.height = screen_size[1];
                 // create screen object
@@ -37,6 +39,18 @@ function createPygameHelper() {
                 ctx.strokeStyle = '#000000';
                 console.log("line");
             }
+        },
+        event: {
+
         }
     };
+    pyodide.registerJsModule("pygame_helper", pygameHelper);
+
+    // handle events
+    canvas.addEventListener('click', function(_evt) {
+        pyodide.runPython(`
+            import pygame
+            pygame.event.handle_event(pygame.event.Event.create_click())
+        `)
+    });
 }
