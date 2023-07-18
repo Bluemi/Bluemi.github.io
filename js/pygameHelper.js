@@ -153,20 +153,19 @@ async function createPygameHelper(pyodide, micropip, canvas) {
         );
     });
 
-    window.addEventListener('keydown', function(evt) {
+    canvas.addEventListener('keydown', function(evt) {
         evt.preventDefault();
         let locals = new Map();
         let norm_evt = normalizeKeyEvent(evt);
         locals.set('key', norm_evt.keyCode);
         locals.set('unicode', norm_evt.unicode);
-        console.log('norm evt:', norm_evt);
         pyodide.runPython(
             "pygame.event.handle_event(pygame.event.Event.create_keydown(key, unicode))",
             {locals: locals}
         );
     });
 
-    window.addEventListener('keyup', function(evt) {
+    canvas.addEventListener('keyup', function(evt) {
         let locals = new Map();
         let norm_evt = normalizeKeyEvent(evt);
         locals.set('key', norm_evt.keyCode);
