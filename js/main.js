@@ -29,16 +29,16 @@ async function main(){
     let mainCanvas = document.getElementById("mainCanvas");
     mainCanvas.width = 1280;
     mainCanvas.height = 720;
-    showProgress(mainCanvas, "Loading Pyodide", 0.05);
+    showProgress(mainCanvas, "Loading Pyodide", 0.02);
     let pyodide = await loadPyodide();
-    showProgress(mainCanvas, "Loading Micropip", 0.3);
+    showProgress(mainCanvas, "Loading Micropip", 0.2);
     await pyodide.loadPackage("micropip");
     const micropip = pyodide.pyimport("micropip");
-    showProgress(mainCanvas, "Loading Numpy", 0.5);
+    showProgress(mainCanvas, "Loading Numpy", 0.4);
     await pyodide.loadPackage("numpy");
-    showProgress(mainCanvas, "Loading Pygame Helper", 0.7);
+    showProgress(mainCanvas, "Loading Pygame Helper", 0.6);
     await createPygameHelper(pyodide, micropip, mainCanvas);
-    showProgress(mainCanvas, "Installing Linear Algebra Testcase", 0.95);
+    showProgress(mainCanvas, "Installing Linear Algebra Testcase", 0.8);
     await micropip.install("wheels/linear_algebra_testcase-0.1.0-py3-none-any.whl");
     pyodide.runPython(`
         from linear_algebra_testcase.main import main
