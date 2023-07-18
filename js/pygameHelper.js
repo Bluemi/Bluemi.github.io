@@ -105,6 +105,9 @@ async function createPygameHelper(pyodide, micropip, canvas) {
     pyodide.runPython("import pygame");
 
     // handle events
+    // set tabindex
+    canvas.tabIndex = 1;
+
     canvas.addEventListener('mousedown', function(evt) {
         let mousePos = getCanvasMousePos(canvas, evt);
         let locals = new Map();
