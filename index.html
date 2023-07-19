@@ -11,20 +11,20 @@
 </div>
 
 <h1 id="linear-algebra-testcase"><a href="https://github.com/Bluemi/linear-algebra-testcase">Linear Algebra Testcase</a></h1>
-<p>A small utility program in Python (pygame + numpy) to visualize concepts of linear transformations.
-  View <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE">3Blue1Brown</a> for a nice introduction.</p>
-<h2 id="installation">Installation</h2>
-<pre><code class="lang-bash"><span class="hljs-comment"># clone repository</span>
-git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Bluemi/</span>linear-algebra-testcase.git
-cd linear-algebra-testcase
+<p>A small utility program in Python (pygame + numpy) to visualize concepts of linear transformations executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>.
+  Watch <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE">3Blue1Brown</a> for a nice introduction.</p>
+<h2 id="tryitout">Try it out!</h2>
+<h4>Add Objects</h4>
+Click on the menu button on the top left. Click the small plus buttons to add Objects, Transforms or Transformed Objects. <br>
+You can mutate objects by dragging in the editor window (on the right) or by changing the number values (on the left side) by dragging them up or down.
 
-<span class="hljs-comment"># install requirements (numpy, pygame)</span>
-pip3 install -r requirements.txt
+<h4>Using Transformed Objects</h4>
+There are two kinds of transformed objects. The first one will apply a transform onto an object (basically doing a matrix multiplication with the vector(s) of the object).
+Click on the transformed object and then on an object. Then click on the transformed object again and then on the transform. This will apply the transform onto the object.<br>
+The second transformed is a free text transformation, that can use all names present (like v1, T1, ...) and all numpy functions. Try <code>np.linalg.inv(T1)</code> to calculate the inverse of a transform. <br>
 
-<span class="hljs-comment"># run the programm</span>
-python3 .<span class="hljs-regexp">/src/m</span>ain.py
-</code></pre>
-<p>Consider using a virtual python-environment (eg <a href="https://pypi.org/project/virtualenvwrapper">virtualenvwrapper</a>).</p>
+For a more verbose explanation see Usage bellow.
+
 <h2 id="usage">Usage</h2>
 <p>You can move around in the plane with the mouse. Zoom is controlled with the mouse wheel.
   If you click on the button on the left top, a menu opens.</p>
@@ -51,6 +51,21 @@ python3 .<span class="hljs-regexp">/src/m</span>ain.py
 <p><strong>Example:</strong> Lets say you have a vector <code>v1</code> and a 2d transformation matrix <code>T1</code>. You could write <code>T1 @ v1</code> to apply the transformation matrix on your vector and render the result.
   The same works for unit circles (replace <code>v1</code> with <code>u1</code>).</p>
 <p>As applying a 3d transformation matrix on a 2d vector is a bit complicated, you can use the special function <code>mm()</code>(matrix-multiplication): <code>mm(T1, v1)</code>.</p>
+
+<h2 id="installation">Installation</h2>
+You can install this program locally using python.
+<pre><code class="lang-bash"><span class="hljs-comment"># clone repository</span>
+git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Bluemi/</span>linear-algebra-testcase.git
+cd linear-algebra-testcase
+
+<span class="hljs-comment"># install requirements (numpy, pygame)</span>
+pip3 install -r requirements.txt
+
+<span class="hljs-comment"># run the programm</span>
+python3 .<span class="hljs-regexp">/src/m</span>ain.py
+</code></pre>
+<p>Consider using a virtual python-environment (eg <a href="https://pypi.org/project/virtualenvwrapper">virtualenvwrapper</a>).</p>
+
 <h2 id="limitations-risks">Limitations / Risks</h2>
 <ul>
   <li>To evaluate custom-transformations the python builtin <code>eval()</code> is used, which allows arbitrary code execution. For example, you could use <code>exit()</code> as formula to end the program. So be a bit careful.</li>
