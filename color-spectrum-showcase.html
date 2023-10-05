@@ -15,7 +15,23 @@
 <p>A small utility program in Python (pygame + numpy) to visualize the connection between spectrum and colors, executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>.
   Read <a href="https://scipython.com/blog/converting-a-spectrum-to-a-colour/">this Blogpost</a> for a nice introduction.</p>
 <h2 id="tryitout">Try it out!</h2>
-<h4>Todo</h4>
+<p>The left side shows a spectrum from 380 nm to 781 nm wave length with a 5 nm step.</p>
+<p>The right side shows the resulting color from this spectrum.</p>
+<h3 id="changing-the-spectrum">Changing the spectrum</h3>
+<p>To change the spectrum just click on it and move the cursor around.</p>
+<p>There are also some predefined spectrums that can be set by pressing the following keys:</p>
+<ul>
+<li>Number keys <code>1</code>, ..., <code>9</code>, <code>0</code>: Set a spectrum that is emitted by a <a href="https://en.wikipedia.org/wiki/Black-body_radiation">blackbody</a> at temperature <code>key</code> * 1000 Kelvin (10000 Kelvin for key <code>0</code>).</li>
+<li><code>r</code>, <code>g</code>, <code>b</code>: Set a spectrum with color red, green or blue.</li>
+<li><code>c</code>, <code>m</code>, <code>y</code>, <code>k</code>: Set a spectrum with color cyan, magenta, yellow or black.</li>
+<li><code>+</code>, <code>-</code>: Change the position of the spectrum.</li>
+</ul>
+<h3 id="using-filters">Using filters</h3>
+<p>The shown spectrum can be filtered by a filter. To activate the filter press <code>f</code>.</p>
+<p>All keys that modify the spectrum can also modify the filter in the same way by holding <code>shift</code> at the same time.</p>
+<h3 id="normalizing-colors">Normalizing colors</h3>
+<p>By default, the color on the right side and the colors of the spectrum are not normalized.
+To toggle the normalization of the spectrum press <code>N</code>. To toggle the normalization of the color on the right side press <code>n</code>.</p>
 
 </body>
 <script src="js/color_spectrum_showcase.js"></script>
