@@ -1,80 +1,10 @@
 <!doctype html>
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
-  <script src="js/pygameHelper.js"></script>
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="full-page-width">
-<canvas id="mainCanvas"></canvas>
-</div>
-
-<h1 id="linear-algebra-testcase"><a href="https://github.com/Bluemi/linear-algebra-testcase">Linear Algebra Testcase</a></h1>
-<p>A small utility program in Python (pygame + numpy) to visualize concepts of linear transformations executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>.
-  Watch <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE">3Blue1Brown</a> for a nice introduction.</p>
-<h2 id="tryitout">Try it out!</h2>
-<h4>Add Objects</h4>
-Click on the menu button on the top left. Click the small plus buttons to add Objects, Transforms or Transformed Objects. <br>
-You can mutate objects by dragging in the editor window (on the right) or by changing the number values (on the left side) by dragging them up or down.
-
-<h4>Using Transformed Objects</h4>
-There are two kinds of transformed objects. The first one will apply a transform onto an object (basically doing a matrix multiplication with the vector(s) of the object).
-Click on the transformed object and then on an object. Then click on the transformed object again and then on the transform. This will apply the transform onto the object.<br>
-The second transformed is a free text transformation, that can use all names present (like v1, T1, ...) and all numpy functions. Try <code>np.linalg.inv(T1)</code> to calculate the inverse of a transform. <br>
-
-For a more verbose explanation see Usage bellow.
-
-<h2 id="usage">Usage</h2>
-<p>You can move around in the plane with the mouse. Zoom is controlled with the mouse wheel.
-  If you click on the button on the left top, a menu opens.</p>
-<p>The menu shows three sections:</p>
-<ul>
-  <li><strong>Object:</strong> You can have two kinds of objects: A single vector or a collection of vectors ordered in a circle (or ellipse, if modified). Add these objects by clicking on the plus buttons. You can change the values of a vector by dragging them in the coordinate system.</li>
-  <li><strong>Transforms:</strong> Here you can add Transformation matrices. The first plus-button creates a two-dimensional matrix. If you want to utilize translation as well you have to use the second plus-button to create a three-dimensional transformation matrix. These matrices are not rendered directly, but can be later used for transformations. To change the values of a matrix, hold an element of the matrix and move the mouse up or down. The bottom row of a 3-dimensional matrix does not change anything (as long as you don&#39;t use it for later transformations).</li>
-  <li><strong>Transformed:</strong> If you want to see the effect of your Transforms use this section. The first button creates a transformed version of one of your objects.<pre><code>             To <span class="hljs-keyword">select</span> an <span class="hljs-keyword">object</span> click <span class="hljs-keyword">on</span> the created transform <span class="hljs-keyword">and</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">on</span> the <span class="hljs-keyword">left</span> side <span class="hljs-keyword">on</span> one <span class="hljs-keyword">of</span> the objects. <span class="hljs-keyword">Then</span> click <span class="hljs-keyword">on</span> the transformed again <span class="hljs-keyword">and</span> click <span class="hljs-keyword">on</span> the transformation you want <span class="hljs-keyword">to</span> use.
-             This <span class="hljs-keyword">only</span> works <span class="hljs-keyword">for</span> <span class="hljs-number">2</span>-dimensional transformation matrices (WIP).
-             The <span class="hljs-keyword">last</span> <span class="hljs-keyword">add</span> button creates a custom-transformation. <span class="hljs-keyword">If</span> you click <span class="hljs-keyword">on</span> the custom transformation a window will pop up, that enables you <span class="hljs-keyword">to</span> write python code.
-             See [Custom Transformed](#custom-transformed) <span class="hljs-keyword">for</span> more information. <span class="hljs-keyword">To</span> <span class="hljs-keyword">close</span> the window press <span class="hljs-string">`Esc`</span>. You can remove the <span class="hljs-keyword">last</span> <span class="hljs-keyword">sign</span> <span class="hljs-keyword">with</span> <span class="hljs-string">`Backspace`</span> <span class="hljs-keyword">and</span> everything <span class="hljs-keyword">with</span> <span class="hljs-string">`Del`</span>.
-             <span class="hljs-keyword">As</span> you can see, this editor <span class="hljs-keyword">is</span> very rudimentary (<span class="hljs-keyword">no</span> removal/edit <span class="hljs-keyword">of</span> signs that <span class="hljs-keyword">are</span> <span class="hljs-keyword">not</span> the <span class="hljs-keyword">last</span> <span class="hljs-keyword">sign</span>).
-</code></pre></li>
-</ul>
-<h3 id="controls">Controls</h3>
-<ul>
-  <li>To remove any object, transform or transformed hover over the element in the menu on the left side and press <code>Del</code> or <code>Backspace</code>.</li>
-  <li>You can toggle between render mode <code>LINE</code> and <code>POINT</code> by hovering over a rendered element on the left side and pressing <code>r</code>.</li>
-  <li>You can toggle visibility by hovering over a rendered element on the left side and pressing <code>v</code>.</li>
-</ul>
-<h3 id="custom-transformed">Custom Transformed</h3>
-<p>If you create a custom transformed and click on it, a text window appears. Here you can write a python expression.
-  You can use all object names listed above and numpy functions (accessible via <code>np</code>). Objects from above will be presented as <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy-ndarray</a>.</p>
-<p><strong>Example:</strong> Lets say you have a vector <code>v1</code> and a 2d transformation matrix <code>T1</code>. You could write <code>T1 @ v1</code> to apply the transformation matrix on your vector and render the result.
-  The same works for unit circles (replace <code>v1</code> with <code>u1</code>).</p>
-<p>As applying a 3d transformation matrix on a 2d vector is a bit complicated, you can use the special function <code>mm()</code>(matrix-multiplication): <code>mm(T1, v1)</code>.</p>
-
-<h2 id="installation">Installation</h2>
-You can install this program locally using python.
-<pre><code class="lang-bash"><span class="hljs-comment"># clone repository</span>
-git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Bluemi/</span>linear-algebra-testcase.git
-cd linear-algebra-testcase
-
-<span class="hljs-comment"># install requirements (numpy, pygame)</span>
-pip3 install -r requirements.txt
-
-<span class="hljs-comment"># run the programm</span>
-python3 .<span class="hljs-regexp">/src/m</span>ain.py
-</code></pre>
-<p>Consider using a virtual python-environment (eg <a href="https://pypi.org/project/virtualenvwrapper">virtualenvwrapper</a>).</p>
-
-<h2 id="limitations-risks">Limitations / Risks</h2>
-<ul>
-  <li>To evaluate custom-transformations the python builtin <code>eval()</code> is used, which allows arbitrary code execution. For example, you could use <code>exit()</code> as formula to end the program. So be a bit careful.</li>
-  <li>The first kind of transformed-objects is not supported for 3d-transformation matrices (WIP).</li>
-  <li>The formula editor is very limited. No cursor position and only very basic editing possibilities.</li>
-  <li>Many more...</li>
-  <li>The code is in a horrible shape. Maybe I will find time to tidy up a bit. Probably not...</li>
-</ul>
-
+<h1>Bluemies Home Page - TODO</h1>
+<a href="/linalg-showcase.html">Open Linear Algebra Showcase</a>
 </body>
-<script src="js/main.js"></script>
 </html>
