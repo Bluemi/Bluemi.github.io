@@ -1,4 +1,4 @@
-const ALLOWED_KEYCODES = [190, 188];
+const ALLOWED_KEYCODES = [190, 188, 171, 173];
 
 function componentToHex(c) {
     let hex = c.toString(16);
