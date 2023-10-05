@@ -25,7 +25,7 @@ function showProgress(canvas, text, progress) {
     ctx.fill();
 }
 
-async function main(){
+async function linear_algebra_showcase(){
     let mainCanvas = document.getElementById("mainCanvas");
     mainCanvas.width = 1280;
     mainCanvas.height = 720;
@@ -47,4 +47,4 @@ async function main(){
     `);
 }
 
-main();
+linear_algebra_showcase();
