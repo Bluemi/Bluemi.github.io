@@ -166,6 +166,10 @@ async function createPygameHelper(pyodide, micropip, canvas) {
             "pygame.event.handle_event(pygame.event.Event.create_keydown(key, unicode))",
             {locals: locals}
         );
+        pyodide.runPython(
+            "pygame.event.handle_event(pygame.event.Event.create_text_input(unicode))",
+            {locals: locals}
+        );
     });
 
     canvas.addEventListener('keyup', function(evt) {

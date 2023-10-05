@@ -25,7 +25,7 @@ function showProgress(canvas, text, progress) {
     ctx.fill();
 }
 
-async function linear_algebra_showcase(){
+async function color_spectrum_showcase(){
     let mainCanvas = document.getElementById("mainCanvas");
     mainCanvas.width = 1280;
     mainCanvas.height = 720;
@@ -38,13 +38,13 @@ async function linear_algebra_showcase(){
     await pyodide.loadPackage("numpy");
     showProgress(mainCanvas, "Loading Pygame Helper", 0.6);
     await createPygameHelper(pyodide, micropip, mainCanvas);
-    showProgress(mainCanvas, "Installing Linear Algebra Testcase", 0.8);
-    await micropip.install("wheels/linear_algebra_testcase-0.1.0-py3-none-any.whl");
+    showProgress(mainCanvas, "Installing Color Spectrum Testcase", 0.8);
+    await micropip.install("wheels/color_testcase-0.1.0-py3-none-any.whl");
     pyodide.runPython(`
-        from linear_algebra_testcase.main import main
+        from color_testcase.main import main
         main_instance = main()
-        pygame.event.handle_event(pygame.event.Event.create_mouseenter())
+        pygame.event.handle_event(pygame.event.Event.create_windowenter())
     `);
 }
 
-linear_algebra_showcase();
+color_spectrum_showcase();
