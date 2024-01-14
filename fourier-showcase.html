@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <script src="js/pygameHelper.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <title>Fourier Showcase</title>
+</head>
+<body>
+<div class="full-page-width">
+  <canvas id="mainCanvas"></canvas>
+</div>
+
+<h1 id="fourier-showcase"><a href="https://github.com/Bluemi/fourier-showcase">Fourier Showcase</a></h1>
+<p>A small utility program in Python (pygame + numpy) to visualize the fourier transformation, executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>. </p>
+<h2 id="tryitout">Try it out!</h2>
+<p>The left side shows a list of float values.</p>
+<p>The right side shows the resulting spectrum after a fourier transformation.</p>
+
+<h3 id="changing-the-samples">Changing the samples/spectrum</h3>
+<p>To change the spectrum just click on it and move the cursor around. Left click will set the real part, right click the imaginary part.</p>
+<p>There are also some predefined spectrums that can be set by pressing the following keys:</p>
+<ul>
+<li><code>s</code>, <code>c</code>: Create a sin()/cos()-function on the left side. Pressing it again will incease the frequency. Pressing Shift+s reduces the frequency.</li>
+<li><code>0</code>: Set all samples to zero.</li>
+<li><code>+</code>, <code>-</code>: Increase/decrease the number of samples.</li>
+<li><code>i</code>: Toggle rendering the imaginary part of the samples.</li>
+</ul>
+
+</body>
+<script src="js/fourier_showcase.js"></script>
+</html>
