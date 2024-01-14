@@ -41,7 +41,7 @@ async function fourier_showcase(){
     showProgress(mainCanvas, "Installing Color Spectrum Testcase", 0.8);
     await micropip.install("wheels/fourier_showcase-0.1.0-py3-none-any.whl");
     pyodide.runPython(`
-        from fourier_testcase.main import main
+        from fourier_showcase.main import main
         main_instance = main()
         pygame.event.handle_event(pygame.event.Event.create_windowenter())
     `);
