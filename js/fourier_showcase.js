@@ -38,7 +38,7 @@ async function fourier_showcase(){
     await pyodide.loadPackage("numpy");
     showProgress(mainCanvas, "Loading Pygame Helper", 0.6);
     await createPygameHelper(pyodide, micropip, mainCanvas);
-    showProgress(mainCanvas, "Installing Color Spectrum Testcase", 0.8);
+    showProgress(mainCanvas, "Installing Fourier Showcase", 0.8);
     await micropip.install("wheels/fourier_showcase-0.1.0-py3-none-any.whl");
     pyodide.runPython(`
         from fourier_showcase.main import main
