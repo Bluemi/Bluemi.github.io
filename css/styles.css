@@ -43,7 +43,7 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --bs-primary-rgb: 21, 86, 135;
-  --bs-secondary-rgb: 44, 62, 80;
+  --bs-secondary-rgb: 24, 52, 70;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -10970,6 +10970,12 @@ html {
 .masthead {
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
+
+  /* background image */
+  background-image: url("../assets/img/background_flat.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .masthead .masthead-heading {
   font-size: 2.75rem;
