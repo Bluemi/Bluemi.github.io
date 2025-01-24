@@ -4,14 +4,14 @@
     - Projekte:
       - NeuroRacer
       - FLAS
-      - deglib
       - Video Pixelator
+      - Object Detection on Medical Data
       - Linear Algebra Testcase
       - ML Testcase
 
     - Verweis auf Github
 
-    - Object Detection on Medical Data
+    - deglib
     - Teeworlds Reinforcement Learning
     - Abgeordneten Watch
     - Clustering Testcase
