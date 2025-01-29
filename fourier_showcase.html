@@ -63,31 +63,35 @@
         </header>
 
         <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
+        <section class="page-section portfolio bg-light py-5" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Explanation</h2>
                 <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
+                <div class="divider-custom"><div class="divider-custom-line"></div></div>
+
+                <!-- Text -->
+                <p class="lead text-muted">A small utility program in Python (pygame + numpy) to visualize the fourier transformation, executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>. </p>
+                <p class="lead text-muted">Watch <a href="https://www.youtube.com/watch?v=spUNpyF58BY">this YouTube Video</a> for a gentle introduction to the fourier transformations.</p>
+                <div class="bg-light py-4 px-3 rounded">
+                    <h3 class="text-secondary mb-2">Try it out!</h3>
                 </div>
-                <p class="lead">View the code on <a href="https://github.com/Bluemi/fourier-showcase">GitHub</a>!</p>
-                <p class="lead">A small utility program in Python (pygame + numpy) to visualize the fourier transformation, executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>. </p>
-                <p class="lead">Watch <a href="https://www.youtube.com/watch?v=spUNpyF58BY">this YouTube Video</a> for a gentle introduction to the fourier transformations.</p>
-                <h3 id="tryitout">Try it out!</h3>
                 <!--
                 -->
-                <p class="lead">The left side shows a list of float values. The right side shows the resulting spectrum after a fourier transformation.</p>
+                <p class="lead text-muted">The left side shows a list of float values. The right side shows the resulting spectrum after a fourier transformation.</p>
 
-                <h3 id="changing-the-samples">Changing the samples/spectrum</h3>
-                <p class="lead">To change the spectrum just click on it and move the cursor around. Left click will set the real part, right click the imaginary part.</p>
-                <p class="lead">There are also some predefined spectrums that can be set by pressing the following keys:</p>
+                <div class="bg-light py-4 px-3 rounded">
+                    <h3 class="text-secondary mb-2">Changing the samples/spectrum</h3>
+                </div>
+                <p class="lead text-muted">To change the spectrum just click on it and move the cursor around. Left click will set the real part, right click the imaginary part.</p>
+                <p class="lead text-muted">There are also some predefined spectrums that can be set by pressing the following keys:</p>
                 <ul>
-                    <li><p class="lead"><code>s</code>, <code>c</code>: Create a sin()/cos()-function on the left side. Pressing it again will incease the frequency. Pressing Shift+s reduces the frequency.</p></li>
-                    <li><p class="lead"><code>0</code>: Set all samples to zero.</p></li>
-                    <li><p class="lead"><code>+</code>, <code>-</code>: Increase/decrease the number of samples.</p></li>
-                    <li><p class="lead"><code>i</code>: Toggle rendering the imaginary part of the samples.</p></li>
+                    <li class="lead text-muted"><code>s</code>, <code>c</code>: Create a sin()/cos()-function on the left side. Pressing it again will incease the frequency. Pressing Shift+s reduces the frequency.</li>
+                    <li class="lead text-muted"><code>0</code>: Set all samples to zero.</li>
+                    <li class="lead text-muted"><code>+</code>, <code>-</code>: Increase/decrease the number of samples.</li>
+                    <li class="lead text-muted"><code>i</code>: Toggle rendering the imaginary part of the samples.</li>
                 </ul>
+                <p class="lead text-muted">View the code on <a href="https://github.com/Bluemi/fourier-showcase">GitHub</a>!</p>
             </div>
 
 
