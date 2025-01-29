@@ -46,5 +46,3 @@ async function linear_algebra_showcase(){
         pygame.event.handle_event(pygame.event.Event.create_mouseenter())
     `);
 }
-
-linear_algebra_showcase();
