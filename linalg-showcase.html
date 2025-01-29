@@ -27,13 +27,13 @@
         <!-- Scripts for fourier showcase -->
         <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
         <script src="js/pygameHelper.js"></script>
-        <script src="js/color_spectrum_showcase.js"></script>
+        <script src="js/linear_algebra_showcase.js"></script>
     </head>
-    <body id="page-top" onload="color_spectrum_showcase()">
+    <body id="page-top" onload="linear_algebra_showcase()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Color Spectrum Showcase</a>
+                <a class="navbar-brand" href="index.html">Linear Algebra Showcase</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -41,14 +41,18 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#explanation">Explanation</a></li>
+                        <!--
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+                        -->
                         <li class="nav-item dropdown mx-0 mx-lg-1">
                             <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Tools
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="./linalg_showcase.html">Linear Algebra</a></li>
-                                <li><a class="dropdown-item" href="./fourier_showcase.html">Fourier Transformation</a></li>
-                                <li><a class="dropdown-item disabled" href="./color_spectrum_showcase.html">Color Spectrum</a></li>
+                                <li><a class="dropdown-item disabled" href="./linalg-showcase.html">Linear Algebra</a></li>
+                                <li><a class="dropdown-item" href="fourier-showcase.html">Fourier Transformation</a></li>
+                                <li><a class="dropdown-item" href="color-spectrum-showcase.html">Color Spectrum</a></li>
                                 <!-- <li><hr class="dropdown-divider"></li> -->
                             </ul>
                         </li>
@@ -67,14 +71,14 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Visualizing colors from a given spectrum</p>
+                <p class="masthead-subheading font-weight-light mb-0">A tool to visualize the discrete fourier transformation</p>
             </div>
         </header>
 
-        <!-- Explanation Section-->
+        <!-- Portfolio Section-->
         <section class="page-section portfolio bg-light py-5" id="explanation">
             <div class="container">
-                <!-- Explanation Section Heading-->
+                <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Explanation</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -82,40 +86,35 @@
                 </div>
 
                 <p class="lead text-muted">
-                    A small utility program in Python (pygame + numpy) to visualize the connection between spectrum and
-                    colors, executed in browser using <a href="https://pyodide.org/en/stable/">pyodide</a>.<br>
-                </p>
-                <p class="lead text-muted">
-                    The conversion from spectrum to color is taken from
-                    <a href="https://scipython.com/blog/converting-a-spectrum-to-a-colour/">this Blogpost</a> that is
-                    also a very nice explanation on the subject.
+                    Utility program in Python (pygame + numpy) to visualize concepts of linear transformations executed
+                    in the browser using <a href="https://pyodide.org/en/stable/">pyodide</a>.
+                    Watch <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE">3Blue1Brown</a> for a nice introduction.
                 </p>
 
                 <div class="bg-light py-4 px-3 rounded">
                     <!-- <h2 class="text-center text-uppercase text-primary mb-3">Try It Out!</h2> -->
-                    <h3 class="text-secondary mb-2">Usage</h3>
+                    <h3 class="text-secondary mb-2">Add Objects</h3>
                 </div>
                 <p class="lead text-muted">
-                    The left side shows a spectrum from 380 nm to 781 nm wave length with a 5 nm step.<br>
-                    The right side shows the resulting color from this spectrum.
+                    Click on the menu button on the top left. Click the small plus buttons to add Objects, Transforms or Transformed Objects.<br>
+                    You can mutate objects by dragging in the editor window (on the right) or by changing the number values (on the left side) by dragging them up or down.
                 </p>
 
                 <div class="bg-light py-4 px-3 rounded">
-                    <h3 class="text-secondary mb-2">Changing the spectrum</h3>
+                    <h3 class="text-secondary mb-2">Using Transformed Objects</h3>
                 </div>
                 <p class="lead text-muted">
-                    The right side shows the resulting color from this spectrum.<br>
-                    The right side shows the resulting color from this spectrum.
+                    There are two kinds of transformed objects. The first one will apply a transform onto an object
+                    (basically doing a matrix multiplication with the vector(s) of the object).
+                    Click on the transformed object and then on an object. Then click on the transformed object again
+                    and then on the transform. This will apply the transform onto the object.
                 </p>
-
-                <ul>
-                    <li class="lead text-muted">Number keys <code>1</code>, ..., <code>9</code>, <code>0</code>: Set a spectrum that is emitted by a <a href="https://en.wikipedia.org/wiki/Black-body_radiation">blackbody</a> at temperature <code>key</code> * 1000 Kelvin (10000 Kelvin for key <code>0</code>).</li>
-                    <li class="lead text-muted"><code>r</code>, <code>g</code>, <code>b</code>: Set a spectrum with color red, green or blue.</li>
-                    <li class="lead text-muted"><code>c</code>, <code>m</code>, <code>y</code>, <code>k</code>: Set a spectrum with color cyan, magenta, yellow or black.</li>
-                    <li class="lead text-muted"><code>+</code>, <code>-</code>: Change the position of the spectrum.</li>
-                </ul>
-
-                <p class="lead text-muted">For more information view the code on <a href="https://github.com/Bluemi/color-testcase">GitHub</a>!</p>
+                <p class="lead text-muted">
+                    The second transformed is a free text transformation, that can use all names present (like v1, T1, ...)
+                    and all numpy functions.<br>
+                    Try <code>np.linalg.inv(T1)</code> to calculate the inverse of a transform.
+                </p>
+                <p class="lead text-muted">For more information view the usage and code on <a href="https://github.com/Bluemi/linear-algebra-testcase">GitHub</a>!</p>
 
             </div>
         </section>
