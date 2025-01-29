@@ -46,5 +46,3 @@ async function color_spectrum_showcase(){
         pygame.event.handle_event(pygame.event.Event.create_windowenter())
     `);
 }
-
-color_spectrum_showcase();
