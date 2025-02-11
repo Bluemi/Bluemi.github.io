@@ -107,6 +107,7 @@ body {
 .cv-images {
   max-width: 40%;
   height: auto;
+  border-radius: 50%;
 }
 
 hr {
@@ -10991,6 +10992,7 @@ html {
 }
 .masthead .masthead-avatar {
   width: 15rem;
+  border-radius: 50%;
 }
 
 @media (min-width: 992px) {
