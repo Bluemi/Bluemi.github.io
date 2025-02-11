@@ -110,6 +110,11 @@ body {
   border-radius: 50%;
 }
 
+.cv-images-no-crop {
+  max-width: 40%;
+  height: auto;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
