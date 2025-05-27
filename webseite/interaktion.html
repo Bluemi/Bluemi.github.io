@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Interaktion in HTML</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+
+<h1>Der Button</h1>
+
+<button type="button" onclick="alert('Du hast mich angeklickt!')">Klick mich!</button>
+
+<h1>Verändern der HTML-Seite</h1>
+
+<ul id="itemList"></ul>
+<button onclick="addItem()">Item hinzufügen</button>
+
+<script>
+let count = 1;
+function addItem() {
+  const ul = document.getElementById('itemList');
+  const li = document.createElement('li');
+  li.textContent = `Item ${count++}`;
+  ul.appendChild(li);
+}
+</script>
+
+
+<h1>Springender Ball</h1>
+
+<script>
+let ball;
+
+function setup() {
+  createCanvas(600, 400);
+  resetBall();
+}
+
+function draw() {
+  background(220);
+
+  ball.y += ball.speedY;
+  ball.speedY += ball.gravity;
+
+  if (ball.y + ball.r > height) {
+    ball.y = height - ball.r;
+    ball.speedY *= ball.bounce;
+  }
+
+  ellipse(ball.x, ball.y, ball.r * 2);
+}
+
+function mousePressed() {
+  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+    resetBall();
+  }
+}
+
+function resetBall() {
+  ball = {
+    x: 300,
+    y: 100,
+    r: 20,
+    speedY: 0,
+    gravity: 0.8,
+    bounce: -0.7
+  };
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
