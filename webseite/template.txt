@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Meine tolle Überschrift</h1>
+<h1>Meine tolle Seite</h1>
 <p>Das ist ein kurzer Text. Der ist auch toll.</p>
 <img src="https://www.htw-berlin.de/files/Presse/Pressefotos/HTW_Berlin_Wilhelminenhof_Strand_2.jpg" alt="HTW Berlin"></img>
 
